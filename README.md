@@ -11,12 +11,10 @@ To implement
 - Mean, geometric
 - Median
 - Mode
-
 - Variance
 - Coefficient of variation 
 - Standard deviation
 - Standard error
-
 - Chi square
 
 ### Significance tests ###
