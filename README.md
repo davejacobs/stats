@@ -11,9 +11,9 @@ To implement
 - <del>Mean, geometric</del>
 - <del>Median</del>
 - <del>Mode</del>
-- Variance
+- <del>Variance</del>
 - Coefficient of variation 
-- Standard deviation
+- <del>Standard deviation</del>
 - Standard error
 
 ### Significance tests ###
