@@ -6,15 +6,15 @@ module Stat
     alias_method :mean, :arithmetic_mean
 
     def geometric_mean(values)
-      values.reduce(&:*) ** (1/values.length.to_f)
+      values.reduce(&:*) ** (1.0/values.length)
     end
     
     def median(values)
-      length = values.length
-      if length.odd? 
-        values.sort[length / 2]
+      n = values.length
+      if n.odd? 
+        values.sort[n / 2]
       else
-        index = length / 2 - 1
+        index = n / 2 - 1
         mean values.sort[index, 2]
       end
     end
