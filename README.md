@@ -12,9 +12,10 @@ To implement
 - <del>Median</del>
 - <del>Mode</del>
 - <del>Variance</del>
-- <del>Coefficient of variation</del> 
 - <del>Standard deviation</del>
-- Standard error
+- <del>Standard error of the mean (for samples only)</del>
+- <del>Relative standard error of the mean (for samples only)</del>
+- <del>Coefficient of variation</del> 
 
 ### Significance tests ###
 

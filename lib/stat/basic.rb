@@ -37,6 +37,17 @@ module Stat
       Math.sqrt variance(values, type)
     end
 
+    def stderr(values)
+      n = values.length
+      std(values, :sample) / sqrt(n)
+    end
+    alias :sem, :stderr
+
+    def relative_stderr(values)
+      stderr(values) / mean(values) * 100
+    end
+    alias :rse, :relative_stderr
+
     def coefficient_of_variation(values, type=:population)
       std(values, type) / mean(values) * 100
     end
