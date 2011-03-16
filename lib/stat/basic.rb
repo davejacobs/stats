@@ -26,5 +26,15 @@ module Stat
         max_by {|k,v| v.length }.
         first
     end
+
+    def variance(values, type=:population)
+      n = type == :population ? values.length : values.length - 1
+      mean = mean values
+      1.0 / n * values.reduce {|x| (x - mean) ** 2 }
+    end
+
+    def std(values, type=:population)
+      Math.sqrt variance(values, type)
+    end
   end
 end
