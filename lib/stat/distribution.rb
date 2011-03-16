@@ -11,6 +11,3 @@ module Stat
     end
   end
 end
-
-
-

@@ -3,22 +3,22 @@ To implement
 
 ### Distributions ###
 
-- Normal distribution
+- <del>Normal distribution - PDF & CDF</del>
 
 ### Basic functions ###
 
-- Mean, arithmetic
-- Mean, geometric
-- Median
-- Mode
+- <del>Mean, arithmetic</del>
+- <del>Mean, geometric</del>
+- <del>Median</del>
+- <del>Mode</del>
 - Variance
 - Coefficient of variation 
 - Standard deviation
 - Standard error
-- Chi square
 
 ### Significance tests ###
 
+- Chi square
 - T-test, single sample
 - T-test, unpaired
 - Wilcoxon signed rank test
