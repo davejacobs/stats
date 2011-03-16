@@ -12,7 +12,7 @@ To implement
 - <del>Median</del>
 - <del>Mode</del>
 - <del>Variance</del>
-- Coefficient of variation 
+- <del>Coefficient of variation</del> 
 - <del>Standard deviation</del>
 - Standard error
 

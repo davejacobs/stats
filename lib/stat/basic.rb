@@ -36,5 +36,10 @@ module Stat
     def std(values, type=:population)
       Math.sqrt variance(values, type)
     end
+
+    def coefficient_of_variation(values, type=:population)
+      std(values, type) / mean(values) * 100
+    end
+    alias :cv, :coefficient_of_variation
   end
 end
