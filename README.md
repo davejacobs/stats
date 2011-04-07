@@ -1,3 +1,8 @@
+Description
+-----------
+
+Ruby needs a solid, beautiful stats library. We're here to build just that. This is a work in progress.
+
 To implement
 ------------
 
