@@ -2,15 +2,15 @@ require 'spec_helper'
 
 # A statistics library needs to be well-tested. As it stands,
 # this spec is a basic validation that the library works as expected.
-# Further testing against Wilkinson's "Statistics Quiz" [0] and 
-# "Assessing the reliability of statistical software", parts 1 [1] 
-# and 2 [2].
+# Further testing will be carried out against Wilkinson's 
+# "Statistics Quiz" [0] and "Assessing the reliability of 
+# statistical software", parts 1 [1] and 2 [2].
 #
-# [0]: http://www.tspintl.com/products/tsp/benchmarks/wilk.rtf
+# [0]: http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf
 # [1]: http://www.questia.com/googleScholar.qst?docId=5001390400
 # [2]: http://www.questia.com/googleScholar.qst?docId=5001888610
 
-module Stat
+module Stats
   describe Basic do
     let(:empty)       { [] }
     let(:normal_odd)  { [1, 2, 3, 4, 5] }

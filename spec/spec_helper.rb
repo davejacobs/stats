@@ -1,5 +1,5 @@
 require 'rspec'
-require 'stat'
+require 'stats'
 
 # Passes for values approximately equal to each other,
 # using a tolerance of 0.00001.

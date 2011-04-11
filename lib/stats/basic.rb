@@ -1,4 +1,4 @@
-module Stat
+module Stats
   module Basic
     class << self
       def arithmetic_mean(values)

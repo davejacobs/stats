@@ -1,4 +1,4 @@
-module Stat
+module Stats
   class Distribution
     def self.normal_pdf(value, mean=0, std=1, opts={})
       raise ArgumentError if mean == 0
