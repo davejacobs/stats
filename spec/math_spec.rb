@@ -2,6 +2,11 @@ require 'spec_helper'
 
 module Stats
   describe Math do
+    it "performs basic sums" do
+      numbers = [1, 2, 3]
+      Math.sum(numbers).should == 6
+    end
+
     it "integrates linear functions" do
       identity = lambda {|x| x }
       Math.integrate(0..1, &identity).should == 0.5
