@@ -48,7 +48,7 @@ module Stats
         return nil if values.empty?
 
         n = type == :population ? values.length : values.length - 1
-        mean = mean values
+        mean = mean(values)
         1.0 / n * values.reduce {|x| (x - mean) ** 2 }
       end
 
