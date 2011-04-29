@@ -49,6 +49,11 @@ module Stats
     end
 
     context "analyzing populations" do
+      it "calculates the correct variance" do
+        Basic.variance(empty).should == nil
+        Basic.variance(normal_odd).should == 0.2
+      end
+      
     end
 
     context "analyzing samples" do
