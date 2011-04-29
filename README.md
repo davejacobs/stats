@@ -46,6 +46,12 @@ To implement
 Resources
 ---------
 
-How to choose the right statistical test:
+- How to choose the right statistical test: 
+  [http://www.graphpad.com/www/book/choose.htm]()
 
-http://www.graphpad.com/www/book/choose.htm
+- Wilkinson's *Statistics Quiz*: 
+  [http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf]()
+
+- Assessing the reliability of statistical software
+  - Part 1: [http://www.questia.com/googleScholar.qst?docId=5001390400]()
+  - Part 2: [http://www.questia.com/googleScholar.qst?docId=5001888610]()
