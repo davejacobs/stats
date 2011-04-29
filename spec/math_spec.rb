@@ -17,14 +17,14 @@ module Stats
       Math.integrate(0..1, &quadratic).should be_pseudo_equal(1.0/3)
     end
 
-    it "integrates e function" do
-      e = lambda {|x| ::Math.exp(x) }
-      Math.integrate(0..1, &e).should be_pseudo_equal(::Math.exp(1) - 1)
-    end
-
     it "integrates trigonometric functions" do
       sin = lambda {|x| ::Math.sin(x) }
       Math.integrate(0..1, &sin).should == 1 - ::Math.cos(1)
+    end
+
+    it "integrates exponential function" do
+      e = lambda {|x| ::Math.exp(x) }
+      Math.integrate(0..1, &e).should be_pseudo_equal(::Math.exp(1) - 1)
     end
   end
 end
