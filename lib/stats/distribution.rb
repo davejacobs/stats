@@ -9,5 +9,9 @@ module Stats
       raise ArgumentError if mean == 0
       GSL::Cdf::gaussian_P(value, std)
     end
+
+    def self.chi_square_pdf(value, df)
+      GSL::Ran::chisq_pdf(value, df)
+    end
   end
 end

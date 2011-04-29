@@ -9,17 +9,12 @@ module Stats
         stats[:statistic].should be_pseudo_equal(5.33333333)
         stats[:p_value].should be_pseudo_equal(0.01200306)
       end
+    end
 
-      it "#chi_square_test 2" do
-        stats = Significance.chi_square([44, 56], [50, 50], 1)
-        stats[:statistic].should be_pseudo_equal(1.44)
-        stats[:p_value].should be_pseudo_equal(0.161822)
-      end
-
-      it "#chi_square_test 3" do
-        stats = Significance.chi_square([108, 92], [100, 100], 1)
-        stats[:statistic].should be_pseudo_equal(1.28)
-        stats[:p_value].should be_pseudo_equal(0.185933)
+    context "when the population is not normally or cardinally distributed" do
+      it "#wilcoxon_rank_sum_test" do
+        pending
+        Significance.wilcoxon_rank_sum([1], [2]).should_not == 0
       end
     end
   end
