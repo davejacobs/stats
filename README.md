@@ -24,7 +24,7 @@ To implement
 
 ### Significance tests ###
 
-- Chi square
+- <del>Chi square (one-sided)</del>
 - T-test, single sample
 - T-test, unpaired
 - Wilcoxon signed rank test

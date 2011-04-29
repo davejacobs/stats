@@ -1,3 +1,5 @@
 require 'gsl'
+require 'stats/math'
 require 'stats/basic'
 require 'stats/distribution'
+require 'stats/significance'
