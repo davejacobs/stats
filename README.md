@@ -22,17 +22,20 @@ To implement
 - <del>Relative standard error of the mean (for samples only)</del>
 - <del>Coefficient of variation</del> 
 
-### Significance tests ###
+### Significance tests &amp; related ###
 
-- <del>Chi square (one-sided)</del>
-- T-test, single sample
-- T-test, unpaired
+- <del>Chi square, one-sided</del>
+- <del>T-test, single sample</del>
+- <del>T-test, two-sample, paired, equal variance</del>
+- T-test, two-sample, unpaired, equal variance
 - Wilcoxon signed rank test
 - Wilcoxon rank sum test
 - ANOVA, one way
 - ANOVA, repeated measures
 - Kruskall-Wallis test
 - Friedman test
+
+- General idea: Confidence intervals
 
 ### Regressions ###
 
@@ -41,17 +44,13 @@ To implement
 - Pearson's correlation
 - Spearman correlation
 
-### Data structures ###
-
 Resources
 ---------
 
-- How to choose the right statistical test: 
-  [http://www.graphpad.com/www/book/choose.htm]()
+- [How to choose the right statistical test](http://www.graphpad.com/www/book/choose.html)
 
-- Wilkinson's *Statistics Quiz*: 
-  [http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf]()
+- [Wilkinson's *Statistics Quiz*](http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf)
 
 - Assessing the reliability of statistical software
-  - Part 1: [http://www.questia.com/googleScholar.qst?docId=5001390400]()
-  - Part 2: [http://www.questia.com/googleScholar.qst?docId=5001888610]()
+  - [Part 1](http://www.questia.com/googleScholar.qst?docId=5001390400)
+  - [Part 2](http://www.questia.com/googleScholar.qst?docId=5001888610)
