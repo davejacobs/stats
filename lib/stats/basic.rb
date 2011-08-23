@@ -47,13 +47,14 @@ module Stats
       def variance(values, type=:population)
         return nil if values.empty?
 
-        n = type == :population ? values.length : values.length - 1
+        n = (type == :population) ? values.length : values.length - 1
         mean = mean(values)
-        1.0 / n * values.reduce {|x| (x - mean) ** 2 }
+        1.0 / n * values.reduce(0) {|sum, x| sum + (x - mean) ** 2 }
       end
 
       def std(values, type=:population)
-        Math.sqrt variance(values, type)
+        return nil if values.empty?
+        ::Math.sqrt variance(values, type)
       end
 
       def stderr(values)
