@@ -20,5 +20,37 @@ module Stats
 
       { :statistic => statistic, :p_value => p_value }
     end
+
+    def self.one_sample_t(x, population_mean)
+      n = x.length
+      s = Basic.std(x, :sample)
+      statistic = (Basic.mean(x) - population_mean) / (s / ::Math.sqrt(n).to_f)
+
+      df = n - 1
+
+      # Right-tailed CDF
+      p_value = Distribution.t_cdf(statistic, df)
+
+      { :statistic => statistic, :p_value => p_value }
+    end
+
+    def self.two_sample_t(x, y)
+      nx = x.length
+      ny = y.length
+
+      grand_std = ::Math.sqrt(
+        ((nx - 1) * (Basic.std(x, :sample) ** 2) + 
+         (ny - 1) * (Basic.std(y, :sample) ** 2)) / 
+         (nx + ny - 2))
+
+      statistic = 
+        (Basic.mean(x) - Basic.mean(y)) / 
+        (grand_std * ::Math.sqrt(1.0 / nx + 1.0 / ny).to_f)
+
+      df = nx + ny - 2
+      p_value = Distribution.t_cdf(statistic, df)
+
+      { :statistic => statistic, :p_value => p_value }
+    end
   end
 end
