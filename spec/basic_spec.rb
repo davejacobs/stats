@@ -18,26 +18,26 @@ module Stats
     let(:duplicates)  { [1, 1, 2, 3, 3, 3, 4, 5] }
 
     context "analyzing type agnostic data" do
-      it "calculates the correct arithmetic mean" do
+      it "#arithmetic_mean" do
         Basic.arithmetic_mean(empty).should == nil
         Basic.arithmetic_mean(normal_odd).should == 3
         Basic.arithmetic_mean(duplicates).should == 22/8.0
       end
 
-      it "calculates the correct geometric mean" do
+      it "#geometric_mean" do
         Basic.geometric_mean(empty).should == nil
         Basic.geometric_mean(normal_odd).should be_pseudo_equal(2.60517)
         Basic.geometric_mean(duplicates).should be_pseudo_equal(2.39429)
       end
 
-      it "calculates the correct median" do
+      it "#median" do
         Basic.median(empty).should == nil
         Basic.median(normal_odd).should == 3
         Basic.median(normal_even).should == 3.5
         Basic.median(duplicates).should == 3
       end
 
-      it "calculates the correct mode" do
+      it "#mode" do
         Basic.mode(empty).should == nil
         Basic.mode(normal_odd).should == nil
         Basic.mode(duplicates).should == 3
@@ -49,14 +49,27 @@ module Stats
     end
 
     context "analyzing populations" do
-      it "calculates the correct variance" do
+      it "#variance" do
         Basic.variance(empty).should == nil
-        Basic.variance(normal_odd).should == 0.2
+        Basic.variance(duplicates).should be_pseudo_equal(1.6875)
       end
-      
+
+      it "#std" do
+        Basic.std(empty).should == nil
+        Basic.std(duplicates).should be_pseudo_equal(1.29904)
+      end
     end
 
     context "analyzing samples" do
+      it "#variance" do
+        Basic.variance(empty, :sample).should == nil
+        Basic.variance(duplicates, :sample).should be_pseudo_equal(1.92857)
+      end
+
+      it "#std" do
+        Basic.std(empty, :sample).should == nil
+        Basic.std(duplicates, :sample).should be_pseudo_equal(1.38873)
+      end
     end
   end
 end
