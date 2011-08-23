@@ -13,5 +13,14 @@ module Stats
     def self.chi_square_pdf(value, df)
       GSL::Ran::chisq_pdf(value, df)
     end
+
+    def self.t_pdf(value, df)
+      GSL::Ran::tdist_pdf(value, df)
+    end
+
+    # Right tailed T distribution CDF
+    def self.t_cdf(value, df)
+      GSL::Cdf::tdist_Q(value, df)
+    end
   end
 end
