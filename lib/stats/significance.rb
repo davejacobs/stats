@@ -23,8 +23,8 @@ module Stats
 
     def self.one_sample_t(x, population_mean)
       n = x.length
-      s = Basic.std(x, :sample)
-      statistic = (Basic.mean(x) - population_mean) / (s / ::Math.sqrt(n).to_f)
+      std = Basic.std(x, :sample)
+      statistic = (Basic.mean(x) - population_mean) / (std / ::Math.sqrt(n).to_f)
 
       df = n - 1
 
@@ -46,7 +46,6 @@ module Stats
       statistic = 
         (Basic.mean(x) - Basic.mean(y)) / 
         (grand_std * ::Math.sqrt(1.0 / nx + 1.0 / ny).to_f)
-
       df = nx + ny - 2
       p_value = Distribution.t_cdf(statistic, df)
 
