@@ -2,19 +2,14 @@ require 'spec_helper'
 
 module Stats
   describe Significance do
-    context "when calculated against one degree of freedom" do
-      # All Chi Square expectations come from Wolfram Alpha
-      it "#chi_square_test" do
+    describe "#chi_square" do
+      it "calculates the correct Chi Square statistics for df = 1" do
         stats = Significance.chi_square([85, 15], [75, 25], 1)
         stats[:statistic].should be_pseudo_equal(5.33333333)
         stats[:p_value].should be_pseudo_equal(0.01200306)
       end
     end
 
-    context "when the population is not normally or cardinally distributed" do
-      it "#wilcoxon_rank_sum_test" do
-        pending
-        Significance.wilcoxon_rank_sum([1], [2]).should_not == 0
     describe "#one_sample_t" do
       it "calculates the correct one-sided, one-sample T value according to R" do
         x = [62, 92, 75, 68, 83, 95]
@@ -22,9 +17,7 @@ module Stats
 
         stats = Significance.one_sample_t(x, population_mean)
         stats[:statistic].should be_pseudo_equal(1.7053)
-
-        # One-sided
-        stats[:p_value].should be_pseudo_equal(0.07443)
+        stats[:p_value].should be_pseudo_equal(0.07443) # One-sided
       end
     end
 
@@ -35,9 +28,7 @@ module Stats
 
         stats = Significance.two_sample_t(x, y)
         stats[:statistic].should be_pseudo_equal(1.09472)
-
-        # One-sided
-        stats[:p_value].should be_pseudo_equal(0.144)
+        stats[:p_value].should be_pseudo_equal(0.144) # One-sided
       end
     end
   end
