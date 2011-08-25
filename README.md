@@ -26,9 +26,9 @@ To implement
 
 - <del>Chi square, one-sided</del>
 - <del>T-test, single sample</del>
-- <del>T-test, two-sample, paired, equal variance</del>
-- T-test, two-sample, unpaired, equal variance
 - Wilcoxon signed rank test
+- <del>T-test, two-sample</del>
+- T-test, repeated measures
 - Wilcoxon rank sum test
 - ANOVA, one way
 - ANOVA, repeated measures
