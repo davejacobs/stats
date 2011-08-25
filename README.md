@@ -26,7 +26,6 @@ To implement
 
 - <del>Chi square, one-sided</del>
 - <del>T-test, single sample</del>
-- Wilcoxon signed rank test
 - <del>T-test, two-sample</del>
 - <del>T-test, repeated measures<del>
 - Wilcoxon rank sum test
