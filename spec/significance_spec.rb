@@ -3,7 +3,7 @@ require 'spec_helper'
 module Stats
   describe Significance do
     describe "#chi_square" do
-      it "calculates the correct Chi Square statistics for df = 1" do
+      it "calculates the correct Chi Square stats for df = 1 according to R" do
         stats = Significance.chi_square([85, 15], [75, 25], 1)
         stats[:statistic].should be_pseudo_equal(5.33333333)
         stats[:p_value].should be_pseudo_equal(0.01200306)
@@ -11,7 +11,7 @@ module Stats
     end
 
     describe "#one_sample_t" do
-      it "calculates the correct one-sided, one-sample T value according to R" do
+      it "calculates the correct one-sided, one-sample T stats according to R" do
         x = [62, 92, 75, 68, 83, 95]
         population_mean = 70
 
@@ -33,7 +33,7 @@ module Stats
     end
 
     describe "#repeated_measures_t" do
-      it "calculates the correct repeated-measures T stats according to R" do
+      it "calculates the correct one-sided, repeated-measure T stats according to R" do
         x = [65, 75, 80, 77, 74, 69, 72, 72, 71, 69]
         y = [66, 67, 65, 68, 69, 70, 69, 68, 69, 65]
 
