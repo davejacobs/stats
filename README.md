@@ -28,7 +28,7 @@ To implement
 - <del>T-test, single sample</del>
 - Wilcoxon signed rank test
 - <del>T-test, two-sample</del>
-- T-test, repeated measures
+- <del>T-test, repeated measures<del>
 - Wilcoxon rank sum test
 - ANOVA, one way
 - ANOVA, repeated measures

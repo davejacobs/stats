@@ -31,5 +31,16 @@ module Stats
         stats[:p_value].should be_pseudo_equal(0.144) # One-sided
       end
     end
+
+    describe "#repeated_measures_t" do
+      it "calculates the correct repeated-measures T stats according to R" do
+        x = [65, 75, 80, 77, 74, 69, 72, 72, 71, 69]
+        y = [66, 67, 65, 68, 69, 70, 69, 68, 69, 65]
+
+        stats = Significance.repeated_measures_t(x, y)
+        stats[:statistic].should be_pseudo_equal(3.1304)
+        stats[:p_value].should be_pseudo_equal(0.00605) # One-sided
+      end
+    end
   end
 end

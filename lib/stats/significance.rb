@@ -51,5 +51,30 @@ module Stats
 
       { :statistic => statistic, :p_value => p_value }
     end
+
+    def self.repeated_measures_t(x, y)
+      # assume "equal variance" do
+      #   Basic.variance(x) == Basic.variance(y)
+      # end
+      #
+      # assume "paired values" do
+      #   x.length == y.length
+      # end
+      #
+      # intermediate_values :n, :xy_delta, :mean, :variance, :df
+
+      n = x.length
+      xy_delta = (0...n).map {|i| x[i] - y[i] }
+
+      mean = Basic.mean(xy_delta)
+      variance = Basic.variance(xy_delta, :sample)
+
+      null_hypothesis_mean = 0
+      statistic = (mean - null_hypothesis_mean) / ::Math.sqrt(variance / n.to_f)
+      df = n - 1
+      p_value = Distribution.t_cdf(statistic, df)
+
+      { :statistic => statistic, :p_value => p_value }
+    end
   end
 end
