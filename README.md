@@ -30,8 +30,13 @@ To implement
 - <del>T-test, repeated measures<del>
 - Wilcoxon rank sum test
 - <del>ANOVA, one way</del>
+- ANOVA, two-way
+- ANOVA, three-way
+- MANOVA
+- ANCOVA
 - ANOVA, repeated measures
-- Kruskall-Wallis test
+- Median test
+- Kruskall-Wallis H test
 - Friedman test
 
 - General idea: Confidence intervals
@@ -47,9 +52,7 @@ Resources
 ---------
 
 - [How to choose the right statistical test](http://www.graphpad.com/www/book/choose.html)
-
 - [Wilkinson's *Statistics Quiz*](http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf)
-
 - Assessing the reliability of statistical software
   - [Part 1](http://www.questia.com/googleScholar.qst?docId=5001390400)
   - [Part 2](http://www.questia.com/googleScholar.qst?docId=5001888610)
