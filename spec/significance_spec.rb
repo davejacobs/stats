@@ -42,5 +42,24 @@ module Stats
         stats[:p_value].should be_pseudo_equal(0.00605) # One-sided
       end
     end
+
+    # rate = factor(c(2.5, 2.5, ..., 10))
+    # price = c(12655, 17877, ..., 26755)
+    # a = aov(price ~ rate)
+    # s = summary(a)
+    # statistic = s[[1]][['F value']][[1]]
+    # p.value = pf(15.891605, 3, 8, lower.tail=FALSE)
+    describe "#one_way_anova" do
+      it "calculates the correct one-way ANOVA F ratio for four samples, one variable according to R" do
+        y1 = [12_655, 17_877, 18_766]
+        y2 = [19_877, 20_122, 19_888]
+        y3 = [21_033, 21_188, 22_099]
+        y4 = [25_023, 27_877, 26_755]
+
+        stats = Significance.one_way_anova([y1, y2, y3, y4])
+        stats[:statistic].should be_pseudo_equal(15.891605)
+        stats[:p_value].should be_pseudo_equal(0.0009869)
+      end
+    end
   end
 end

@@ -22,5 +22,13 @@ module Stats
     def self.t_cdf(value, df)
       GSL::Cdf::tdist_Q(value, df)
     end
+
+    def self.f_pdf(value, df1, df2)
+      GSL::Ran::fdist_pdf(value, df1, df2)
+    end
+
+    def self.f_cdf(value, df1, df2)
+      GSL::Cdf::fdist_Q(value, df1, df2)
+    end
   end
 end

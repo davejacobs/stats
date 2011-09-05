@@ -66,5 +66,31 @@ module Stats
 
       { :statistic => statistic, :p_value => p_value }
     end
+
+    def self.one_way_anova(list)
+      n = list.length
+      flat_list = list.flatten
+      flat_n = flat_list.length
+
+      grand_sum = Math.sum(flat_list)
+      grand_mean = grand_sum / flat_n.to_f
+
+      total_ss = flat_list.reduce(0) do |sum, x| 
+        sum + (x - grand_mean) ** 2
+      end
+
+      between_ss = list[0].length * list.reduce(0) do |sum, values|
+        sum + (Basic.mean(values) - grand_mean) ** 2
+      end
+
+      within_ss = total_ss - between_ss
+
+      df1 = n - 1.0
+      df2 = flat_n - n
+
+      statistic = between_ss / df1 * df2 / within_ss
+      p_value = Distribution.f_cdf(statistic, df1, df2)
+      { :statistic => statistic, :p_value => p_value }
+    end
   end
 end

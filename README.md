@@ -29,7 +29,7 @@ To implement
 - <del>T-test, two-sample</del>
 - <del>T-test, repeated measures<del>
 - Wilcoxon rank sum test
-- ANOVA, one way
+- <del>ANOVA, one way</del>
 - ANOVA, repeated measures
 - Kruskall-Wallis test
 - Friedman test
