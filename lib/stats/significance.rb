@@ -53,16 +53,6 @@ module Stats
     end
 
     def self.repeated_measures_t(x, y)
-      # assume "equal variance" do
-      #   Basic.variance(x) == Basic.variance(y)
-      # end
-      #
-      # assume "paired values" do
-      #   x.length == y.length
-      # end
-      #
-      # intermediate_values :n, :xy_delta, :mean, :variance, :df
-
       n = x.length
       xy_delta = (0...n).map {|i| x[i] - y[i] }
 
