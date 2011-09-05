@@ -10,6 +10,10 @@ module Stats
       end
     end
 
+    # In R:
+    # x = c(62, 92, ..., 95)
+    # mean = 70
+    # t.test(x, mu=mean, alternative='greater')
     describe "#one_sample_t" do
       it "calculates the correct one-sided, one-sample T stats according to R" do
         x = [62, 92, 75, 68, 83, 95]
@@ -21,6 +25,10 @@ module Stats
       end
     end
 
+    # In R:
+    # x = c(89.2, 78.2, ..., 89.3)
+    # y = c(79.3, 78.3, ..., 79.9)
+    # t.test(x, y, paired=FALSE, alternative='greater')
     describe "#two_sample_t" do
       it "calculates the correct one-sided, two-sample T stats according to R" do
         x = [89.2, 78.2, 89.3, 88.3, 87.3, 90.1, 95.2, 94.3, 78.3, 89.3]
@@ -32,6 +40,10 @@ module Stats
       end
     end
 
+    # In R:
+    # x = c(65, 75, ..., 69)
+    # y = c(66, 67, ..., 65)
+    # t.test(x, y, paired=FALSE, alternative='two.sided')
     describe "#repeated_measures_t" do
       it "calculates the correct one-sided, repeated-measure T stats according to R" do
         x = [65, 75, 80, 77, 74, 69, 72, 72, 71, 69]
