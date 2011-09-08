@@ -8,7 +8,10 @@ To implement
 
 ### Distributions ###
 
-- <del>Normal distribution - PDF & CDF</del>
+- <del>Normal distribution - PDF &amp; CDF</del>
+- <del>Chi square distribution - PDF</del>
+- <del>T distribution - PDF &amp; CDF</del>
+- <del>F distribution - PDF &amp; CDF</del>
 
 ### Basic functions ###
 
@@ -29,17 +32,17 @@ To implement
 - <del>T-test, two-sample</del>
 - <del>T-test, repeated measures<del>
 - Wilcoxon rank sum test
-- <del>ANOVA, one way</del>
-- ANOVA, two-way
-- ANOVA, three-way
-- MANOVA
-- ANCOVA
-- ANOVA, repeated measures
+- Wilcoxon signed rank test
 - Median test
 - Kruskall-Wallis H test
 - Friedman test
-
-- General idea: Confidence intervals
+- Confidence intervals (general idea)
+- <del>ANOVA, one way</del>
+- Factorial ANOVA, two-way
+- Factorial ANOVA, three-way
+- ANOVA, repeated measures
+- MANOVA
+- ANCOVA
 
 ### Regressions ###
 
