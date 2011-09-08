@@ -1,17 +1,17 @@
 Description
 -----------
 
-Ruby needs a solid, beautiful stats library. We're here to build just that. This is a work in progress.
+Ruby needs a solid, beautiful stats library. We're here to build just that. This is a rapidly moving work in progress.
 
 To implement
 ------------
 
-### Distributions ###
+### Distribution functions ###
 
-- <del>Normal distribution - PDF &amp; CDF</del>
-- <del>Chi square distribution - PDF</del>
-- <del>T distribution - PDF &amp; CDF</del>
-- <del>F distribution - PDF &amp; CDF</del>
+- <del>Normal distribution</del> - PDF &amp; CDF
+- <del>Chi square distribution</del> - PDF
+- <del>T distribution</del> - PDF &amp; CDF
+- <del>F distribution</del> - PDF &amp; CDF
 
 ### Basic functions ###
 
