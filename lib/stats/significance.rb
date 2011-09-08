@@ -12,25 +12,20 @@ module Stats
       statistic = merged.reduce(0) do |mem, pair| 
         mem + (pair[0] - pair[1]) ** 2 / pair[1].to_f
       end
-      
-      p_value = Distribution.chi_square_pdf(statistic, df)
 
       # The interface I actually want:
       # Distribution::ChiSquare.pdf(statistic, :df => degrees_of_freedom)
-
+      p_value = Distribution.chi_square_pdf(statistic, df)
       { :statistic => statistic, :p_value => p_value }
     end
 
     def self.one_sample_t(x, population_mean)
       n = x.length
       std = Basic.std(x, :sample)
-      statistic = (Basic.mean(x) - population_mean) / (std / ::Math.sqrt(n).to_f)
-
       df = n - 1
 
-      # Right-tailed CDF
-      p_value = Distribution.t_cdf(statistic, df)
-
+      statistic = (Basic.mean(x) - population_mean) / (std / ::Math.sqrt(n).to_f)
+      p_value = Distribution.t_cdf(statistic, df) # Right-tailed CDF
       { :statistic => statistic, :p_value => p_value }
     end
 
@@ -43,12 +38,12 @@ module Stats
          (ny - 1) * (Basic.std(y, :sample) ** 2)) / 
          (nx + ny - 2))
 
+      df = nx + ny - 2
+
       statistic = 
         (Basic.mean(x) - Basic.mean(y)) / 
         (grand_std * ::Math.sqrt(1.0 / nx + 1.0 / ny).to_f)
-      df = nx + ny - 2
       p_value = Distribution.t_cdf(statistic, df)
-
       { :statistic => statistic, :p_value => p_value }
     end
 
@@ -60,10 +55,10 @@ module Stats
       variance = Basic.variance(xy_delta, :sample)
 
       null_hypothesis_mean = 0
-      statistic = (mean - null_hypothesis_mean) / ::Math.sqrt(variance / n.to_f)
       df = n - 1
-      p_value = Distribution.t_cdf(statistic, df)
 
+      statistic = (mean - null_hypothesis_mean) / ::Math.sqrt(variance / n.to_f)
+      p_value = Distribution.t_cdf(statistic, df)
       { :statistic => statistic, :p_value => p_value }
     end
 
