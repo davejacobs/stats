@@ -43,7 +43,7 @@ module Stats
     # In R:
     # x = c(65, 75, ..., 69)
     # y = c(66, 67, ..., 65)
-    # t.test(x, y, paired=FALSE, alternative='two.sided')
+    # t.test(x, y, paired=TRUE, alternative="greater")
     describe "#repeated_measures_t" do
       it "calculates the correct one-sided, repeated-measure T stats according to R" do
         x = [65, 75, 80, 77, 74, 69, 72, 72, 71, 69]
