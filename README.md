@@ -25,7 +25,7 @@ To implement
 - <del>Relative standard error of the mean (for samples only)</del>
 - <del>Coefficient of variation</del> 
 
-### Significance tests &amp; related ###
+### Significance tests ###
 
 - <del>Chi square, one-sided</del>
 - <del>T-test, single sample</del>
@@ -36,7 +36,6 @@ To implement
 - Median test
 - Kruskall-Wallis H test
 - Friedman test
-- Confidence intervals (general idea)
 - <del>ANOVA, one way</del>
 - Factorial ANOVA, two-way
 - Factorial ANOVA, three-way
@@ -50,6 +49,13 @@ To implement
 - Multiple linear regression
 - Pearson's correlation
 - Spearman correlation
+
+### Support &amp; other ###
+
+- <del>Basic assumption framework</del>
+- Confidence intervals (general idea)
+- Basic data structures
+- Significance methods on data structures
 
 Resources
 ---------
