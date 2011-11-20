@@ -45,7 +45,7 @@ To implement
 
 ### Regressions ###
 
-- Linear regression
+- <del>Linear regression</del>
 - Multiple linear regression
 - Pearson's correlation
 - Spearman correlation
