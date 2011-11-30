@@ -17,7 +17,7 @@ module Stats
         gradient = (sum_xy - (sum_x * sum_y).to_f / x.length).to_f /  (sum_x_squared - sum_x * sum_x / x.length)
         intercept = (sum_y - gradient * sum_x).to_f / x.length
 
-        return ['gradient' => gradient, 'intercept' => intercept]
+        ['gradient' => gradient, 'intercept' => intercept]
       end
     end
   end
