@@ -1,61 +1,64 @@
 Description
 -----------
 
-Ruby needs a solid, beautiful stats library. We're here to build just that. This is a rapidly moving work in progress.
+Ruby needs a solid, beautiful stats library. We're here to build just that.
+This is a rapidly moving work in progress.
 
 To implement
 ------------
 
 ### Distribution functions ###
 
-- <del>Normal distribution</del> - PDF &amp; CDF
-- <del>Chi square distribution</del> - PDF
-- <del>T distribution</del> - PDF &amp; CDF
-- <del>F distribution</del> - PDF &amp; CDF
+- [x] Normal distribution - PDF &amp; CDF
+- [x] Chi square distribution - PDF
+- [x] T distribution - PDF &amp; CDF
+- [x] F distribution - PDF &amp; CDF
 
 ### Basic functions ###
 
-- <del>Mean, arithmetic</del>
-- <del>Mean, geometric</del>
-- <del>Median</del>
-- <del>Mode</del>
-- <del>Variance</del>
-- <del>Standard deviation</del>
-- <del>Standard error of the mean (for samples only)</del>
-- <del>Relative standard error of the mean (for samples only)</del>
-- <del>Coefficient of variation</del> 
+- [x] Mean, arithmetic
+- [x] Mean, geometric
+- [x] Median
+- [x] Mode
+- [x] Variance
+- [x] Standard deviation
+- [x] Standard error of the mean (for samples only)
+- [x] Relative standard error of the mean (for samples only)
+- [x] Coefficient of variation
 
 ### Significance tests ###
 
-- <del>Chi square, one-sided</del>
-- <del>T-test, single sample</del>
-- <del>T-test, two-sample</del>
-- <del>T-test, repeated measures<del>
-- Wilcoxon rank sum test
-- Wilcoxon signed rank test
-- Median test
-- Kruskall-Wallis H test
-- Friedman test
-- <del>ANOVA, one way</del>
-- Factorial ANOVA, two-way
-- Factorial ANOVA, three-way
-- ANOVA, repeated measures
-- MANOVA
-- ANCOVA
+- [x] Chi square, one-sided
+- [x] T-test, single sample
+- [x] T-test, two-sample
+- [x] T-test, repeated measures
+- [ ] Wilcoxon rank sum test
+- [ ] Wilcoxon signed rank test
+- [ ] Median test
+- [ ] Kruskall-Wallis H test
+- [ ] Friedman test
+- [x] ANOVA, one way
+- [ ] Factorial ANOVA, two-way
+- [ ] Factorial ANOVA, three-way
+- [ ] ANOVA, repeated measures
+- [ ] MANOVA
+- [ ] ANCOVA
+- [ ] Welch's ANOVA
+- [ ] Fisher's least significant difference
 
 ### Regressions ###
 
-- Linear regression
-- Multiple linear regression
-- Pearson's correlation
-- Spearman correlation
+- [ ] Linear regression
+- [ ] Multiple linear regression
+- [ ] Pearson's correlation
+- [ ] Spearman correlation
 
 ### Support &amp; other ###
 
-- <del>Basic assumption framework</del>
-- Confidence intervals (general idea)
-- Basic data structures
-- Significance methods on data structures
+- [x] Basic assumption framework
+- [ ] Confidence intervals (general idea)
+- [ ] Basic data structures
+- [ ] Significance methods on data structures
 
 Resources
 ---------
