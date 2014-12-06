@@ -1,8 +1,9 @@
 Description
 -----------
 
-Ruby needs a solid, beautiful stats library. We're here to build just that.
-This is a rapidly moving work in progress.
+Ruby needs a solid, beautiful stats library. This is the beginning of a look
+at what that might be.  (Note: this on hold for the moment, but with the right
+OSS team, it could be fun to start again.)
 
 To implement
 ------------
