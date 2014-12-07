@@ -5,8 +5,25 @@ Ruby needs a solid, beautiful stats library. This is the beginning of a look
 at what that might be.  (Note: this on hold for the moment, but with the right
 OSS team, it could be fun to start again.)
 
+Try it out
+----------
+
+This is not yet available as a gem (because I want to have better coverage of
+common statistical methods before that happens). I do plan to add a gemspec
+to this repository so that it can be installed using `gem` regardless. Until then,
+try out the following:
+
+    brew install gsl
+    git clone https://github.com/davejacobs/stats.git
+    cd stats
+    bundle
+
 To implement
 ------------
+
+### For developers ###
+
+- [ ] Implement gemspec so this is installable via git URL
 
 ### Distribution functions ###
 
