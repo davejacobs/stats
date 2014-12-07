@@ -23,6 +23,7 @@ To implement
 
 ### For developers ###
 
+- [ ] Get Ruby GSL bindings (`gem install gsl`) to work on Ruby 2.0/OS X
 - [ ] Implement gemspec so this is installable via git URL
 
 ### Distribution functions ###
