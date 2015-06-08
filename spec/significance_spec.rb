@@ -51,7 +51,60 @@ module Stats
 
         stats = Significance.repeated_measures_t(x, y)
         stats[:statistic].should be_pseudo_equal(3.1304)
-        stats[:p_value].should be_pseudo_equal(0.00605) # One-sided
+        stats[:p_value].should be_pseudo_equal(0.006057) # One-sided
+      end
+    end
+
+    describe "#unequal_variance_t"
+
+    # This function currently isn't working. According to R, the
+    # W statistic should be 7, which is correct. However, the p value
+    # should be 0.003497 or double that. I thought that perhaps
+    # my survival function wasn't correct, but I just checked the
+    # call in R (integrate(dnorm, 2.573014654401468, Inf)$value) and
+    # get 0.00504, which is what I'm getting as the p value in the
+    # Ruby version of this function.
+    #
+    # Therefore, the problem is somewhere between the statistic calculation
+    # and the z calculation.
+    #
+    # In R:
+    # x = c(1, 1.2, ..., 6)
+    # y = c(4, 5.1, ..., 7.3)
+    # wilcox.test(x, y, alternative='less')
+    describe "#wilcoxon_rank_sum" do
+      it "calculates the correct Wilcoxon rank sum stats according to R" do
+        x = [1, 1.2, 1.4, 2, 3, 4.5, 4.6, 6]
+        y = [4, 5.1, 5.2, 5.3, 5.8, 7.1, 7.2, 7.3]
+
+        stats = Significance.wilcoxon_rank_sum(x, y)
+        # stats[:statistic].should == 57
+        stats[:p_value].should be_pseudo_equal(0.003497)
+      end
+
+      it "calculates the correct Wilcoxon rank sum stats according to R" do
+        x = [8.50, 9.48, 8.65, 8.16, 8.83, 7.76, 8.63]
+        y = [8.27, 8.20, 8.25, 8.14, 9.00, 8.10, 7.20, 8.32, 7.70]
+
+        stats = Significance.wilcoxon_rank_sum(x, y)
+        # stats[:statistic].should == 47
+        stats[:p_value].should be_pseudo_equal(0.05708)
+      end
+    end
+
+    describe "#mann_whitney_u"
+    describe "#wilcoxon_signed_rank"
+
+    # *Statistics in a Nutshell*, pp. 215ff
+    describe "#kruskal_wallis_h" do
+      it "calculates the correct Kruskall-Wallis H statistic and p value according to R" do
+        x = [4, 5, 6, 6, 7, 8, 9, 9, 9]
+        y = [2, 3, 3, 4, 4, 5, 10, 10, 11]
+        z = [10, 9, 10, 6, 6, 7, 8, 7, 6]
+
+        stats = Significance.kruskal_wallis_h(x, y, z)
+        stats[:statistic].should be_pseudo_equal(2.2654321)
+        stats[:p_value].should be_pseudo_equal(0.3164)
       end
     end
 

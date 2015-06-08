@@ -62,6 +62,48 @@ module Stats
       { :statistic => statistic, :p_value => p_value }
     end
 
+    def self.wilcoxon_rank_sum(x, y, continuity=true, tails=1)
+      nx = x.length
+      ny = y.length
+
+      x_and_y = (x + y).sort
+      ranks = Helpers.ranks_for(x_and_y)
+      xy_ranks = Helpers.rank_map(x_and_y)
+      x_ranks = x.map {|i| xy_ranks[i] }
+      y_ranks = y.map {|i| xy_ranks[i] }
+
+      # Instead of returning "big U" or "little U", as Scipy does,
+      # returns the U statistic for the x vector.
+      ux = (nx * ny + ((nx + 1) * nx) / 2.0) - Math.sum(x_ranks)
+      uy = (nx * ny + ((ny + 1) * ny) / 2.0) - Math.sum(y_ranks)
+      # Less symetrically: u2 = nx * ny - u1
+
+      # little_u, big_u = [ux, uy].sort
+
+      t = Helpers.tie_correct(ranks)
+      sd = ::Math.sqrt((t * nx * ny * (nx + ny + 1)) / 12.0)
+      factor = continuity ? 0.5 : 0
+      z = ((ux - factor - (nx * ny / 2.0)) / sd).abs
+
+      p_value = survival_function(z)
+      { :statistic => ux, :p_value => p_value }
+    end
+
+    def self.kruskal_wallis_h(*args)
+      n = args.flatten.length
+      combined_ranks = Helpers.rank_map(args.reduce([], &:+).sort)
+
+      rank_average_sum = args.reduce(0) do |sum, values|
+        local_n = values.length
+        local_ranks = values.map {|x| combined_ranks[x] }
+        sum + local_n * Basic.mean(local_ranks) ** 2
+      end
+
+      h = (12.0 / (n * (n + 1)) * rank_average_sum) - (3 * (n + 1))
+      p_value = Distribution.chi_square_cdf(h, args.length - 1)
+      { :statistic => h, :p_value => p_value }
+    end
+
     def self.one_way_anova(list)
       n = list.length
       flat_list = list.flatten
