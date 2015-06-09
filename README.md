@@ -74,6 +74,7 @@ Once this is stable and fully tested (it is so far for all the functions listed 
 - [ ] Confidence intervals (general idea)
 - [ ] Basic data structures
 - [ ] Significance methods on data structures
+- [ ] Test using R integration and something like [Rantly](https://github.com/hayeah/rantly)
 
 Resources
 ---------
