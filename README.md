@@ -2,7 +2,7 @@
 
 ## Description ##
 
-This is a prototype of a statistical library for Ruby. The purpose right now is to have understandable code that is useful for relatively small (or chunked) datasets. I'm focusing on building an API that's intuitive for relative newcomers to statistics, especially when it comes to annotating assumptions that each statistical function requires.
+This is a prototype of a statistical library for Ruby. Starting out, the purpose of the library is to be readable (for people studying statistics), to be well-tested (against R and Python statistical functions), and to be useful for Small Data. Big Data can come later, if I have enough fun. With `stats`, I aim to create an API that makes statistics intuitive and harder to mess up. For example, I'd like to take a stab at an assumption framework that can tag specific functions with assumptions that will throw warnings if they're not met.
 
 ---
 
