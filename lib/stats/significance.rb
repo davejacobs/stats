@@ -111,7 +111,7 @@ module Stats
       flat_list = list.flatten
       flat_n = flat_list.length
 
-      grand_sum = Math.sum(flat_list)
+      grand_sum = flat_list.reduce(:+)
       grand_mean = grand_sum / flat_n.to_f
 
       total_ss = flat_list.reduce(0) do |sum, x|
