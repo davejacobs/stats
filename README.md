@@ -1,29 +1,21 @@
-Description
------------
+## Description
 
-Ruby needs a solid, beautiful stats library. This is the beginning of a look
-at what that might be.  (Note: this on hold for the moment, but with the right
-OSS team, it could be fun to start again.)
+This is a prototype of a statistical library for Ruby. The purpose right now is to have understandable code that is useful for relatively small (or chunked) datasets. I'm focusing on building an API that's intuitive for relative newcomers to statistics, especially when it comes to annotating assumptions that each statistical function requires.
 
-Try it out
-----------
+## Try it out
 
-This is not yet available as a gem (because I want to have better coverage of
-common statistical methods before that happens). I do plan to add a gemspec
-to this repository so that it can be installed using `gem` regardless. Until then,
-try out the following:
+Once this is stable and fully tested (it is so far for all the functions listed below), I'll consider publishing it as a gem. Until then, you can play around with `master`:
 
+    brew install gsl
     git clone https://github.com/davejacobs/stats.git
     cd stats
-    brew install gsl
     bundle
 
-To implement
-------------
+## To implement
 
 ### For developers ###
 
-- [ ] Get Ruby GSL bindings (`gem install gsl`) to work on Ruby 2.0/OS X
+- [x] Get Ruby GSL bindings (`gem install gsl`) to work on Ruby 2.0/OS X
 - [ ] Implement gemspec so this is installable via git URL
 
 ### Distribution functions ###
