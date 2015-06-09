@@ -25,7 +25,7 @@ Once this is stable and fully tested (it is so far for all the functions listed 
 ### Distribution functions ###
 
 - [x] Normal distribution - PDF &amp; CDF
-- [x] Chi square distribution - PDF
+- [x] Chi square distribution - PDF &amp; CDF
 - [x] T distribution - PDF &amp; CDF
 - [x] F distribution - PDF &amp; CDF
 
