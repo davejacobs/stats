@@ -9,7 +9,7 @@ module Stats
     def self.chi_square(observed, expected, df=1)
       merged = observed.zip expected
 
-      statistic = merged.reduce(0) do |mem, pair| 
+      statistic = merged.reduce(0) do |mem, pair|
         mem + (pair[0] - pair[1]) ** 2 / pair[1].to_f
       end
 
@@ -34,14 +34,14 @@ module Stats
       ny = y.length
 
       grand_std = ::Math.sqrt(
-        ((nx - 1) * (Basic.std(x, :sample) ** 2) + 
-         (ny - 1) * (Basic.std(y, :sample) ** 2)) / 
+        ((nx - 1) * (Basic.std(x, :sample) ** 2) +
+         (ny - 1) * (Basic.std(y, :sample) ** 2)) /
          (nx + ny - 2))
 
       df = nx + ny - 2
 
-      statistic = 
-        (Basic.mean(x) - Basic.mean(y)) / 
+      statistic =
+        (Basic.mean(x) - Basic.mean(y)) /
         (grand_std * ::Math.sqrt(1.0 / nx + 1.0 / ny).to_f)
       p_value = Distribution.t_cdf(statistic, df)
       { :statistic => statistic, :p_value => p_value }
@@ -62,30 +62,31 @@ module Stats
       { :statistic => statistic, :p_value => p_value }
     end
 
-    def self.wilcoxon_rank_sum(x, y, continuity=true, tails=1)
+    def self.wilcoxon_rank_sum(x, y, continuity=true, tails=2)
+      # TODO: Handle continuity correction
+      # TODO: Handle tie correction warnings
+
       nx = x.length
       ny = y.length
 
+      # TODO: Make this (more) efficient
       x_and_y = (x + y).sort
       ranks = Helpers.ranks_for(x_and_y)
       xy_ranks = Helpers.rank_map(x_and_y)
       x_ranks = x.map {|i| xy_ranks[i] }
-      y_ranks = y.map {|i| xy_ranks[i] }
+      # y_ranks = y.map {|i| xy_ranks[i] }
 
-      # Instead of returning "big U" or "little U", as Scipy does,
-      # returns the U statistic for the x vector.
-      ux = (nx * ny + ((nx + 1) * nx) / 2.0) - Math.sum(x_ranks)
-      uy = (nx * ny + ((ny + 1) * ny) / 2.0) - Math.sum(y_ranks)
-      # Less symetrically: u2 = nx * ny - u1
+      # Normal approximation
+      x_sum = x_ranks.reduce(:+)
+      expected_x_sum = nx * (nx + ny + 1) / 2.0
+      sd = ::Math.sqrt(nx * ny * (nx + ny + 1) / 12.0)
+      z = (x_sum - expected_x_sum) / sd
 
-      # little_u, big_u = [ux, uy].sort
+      # Returns the U statistic for the x vector. Doesn't return
+      # the small u, which can be derived from U.
+      ux = (nx * ny + ((nx + 1) * nx) / 2.0) - x_sum
 
-      t = Helpers.tie_correct(ranks)
-      sd = ::Math.sqrt((t * nx * ny * (nx + ny + 1)) / 12.0)
-      factor = continuity ? 0.5 : 0
-      z = ((ux - factor - (nx * ny / 2.0)) / sd).abs
-
-      p_value = survival_function(z)
+      p_value = tails * survival_function(z.abs)
       { :statistic => ux, :p_value => p_value }
     end
 
@@ -112,7 +113,7 @@ module Stats
       grand_sum = Math.sum(flat_list)
       grand_mean = grand_sum / flat_n.to_f
 
-      total_ss = flat_list.reduce(0) do |sum, x| 
+      total_ss = flat_list.reduce(0) do |sum, x|
         sum + (x - grand_mean) ** 2
       end
 

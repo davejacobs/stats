@@ -51,7 +51,7 @@ To implement
 - [x] T-test, single sample
 - [x] T-test, two-sample
 - [x] T-test, repeated measures
-- [ ] Wilcoxon rank sum test
+- [x] Wilcoxon rank sum test
 - [ ] Wilcoxon signed rank test
 - [ ] Median test
 - [ ] Kruskall-Wallis H test

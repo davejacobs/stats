@@ -18,6 +18,9 @@ module Stats
       Helpers.ranks_for([1, 2, 3, 4]).should == [1, 2, 3, 4]
       Helpers.ranks_for([1, 1, 2, 3]).should == [1.5, 1.5, 3, 4]
       Helpers.ranks_for([1, 2, 2, 3]).should == [1, 2.5, 2.5, 4]
+
+      # TODO: Change ranks_for to act on unsorted lists
+      # Helpers.ranks_for([1, 2, 3, 2]).should == [1, 2.5, 4, 2.5]
     end
 
     it "#average_ranks" do
@@ -31,7 +34,7 @@ module Stats
     end
 
     it "#partition_ties" do
-      Helpers.partition_ties([1, 1, 1, 2, 2, 3, 3, 3, 3, 3]).should == 
+      Helpers.partition_ties([1, 1, 1, 2, 2, 3, 3, 3, 3, 3]).should ==
         { 1 => 3, 2 => 2, 3 => 5 }
     end
   end

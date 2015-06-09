@@ -19,9 +19,6 @@ module Stats
         ranks = []
         curr_rank = 1
 
-        # I despise using #each where pure functions would do, but clarity is king,
-        # and intermingling state with a loop is probably best done this way,
-        # at least in Ruby. In Clojure this would be a list comprehension.
         values.each do |n|
           curr_len = n.is_a?(Fixnum) ? 1 : n.length
 
