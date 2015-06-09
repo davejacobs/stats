@@ -24,6 +24,8 @@ Once this is stable and fully tested (it is so far for all the functions listed 
 
 ### Distribution functions ###
 
+I've added a wrapper around GSL distribution functions, for more intuitive access and testing.
+
 - [x] Normal distribution - PDF &amp; CDF
 - [x] Chi square distribution - PDF &amp; CDF
 - [x] T distribution - PDF &amp; CDF
