@@ -90,6 +90,7 @@ module Stats
       { :statistic => ux, :p_value => p_value }
     end
 
+    # Note: This function isn't yet working
     def self.kruskal_wallis_h(*args)
       n = args.flatten.length
       combined_ranks = Helpers.rank_map(args.reduce([], &:+).sort)
