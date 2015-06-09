@@ -1,8 +1,12 @@
-## Description
+# Stats #
+
+## Description ##
 
 This is a prototype of a statistical library for Ruby. The purpose right now is to have understandable code that is useful for relatively small (or chunked) datasets. I'm focusing on building an API that's intuitive for relative newcomers to statistics, especially when it comes to annotating assumptions that each statistical function requires.
 
-## Try it out
+---
+
+## Try it out ##
 
 Once this is stable and fully tested (it is so far for all the functions listed below), I'll consider publishing it as a gem. Until then, you can play around with `master`:
 
@@ -11,7 +15,7 @@ Once this is stable and fully tested (it is so far for all the functions listed 
     cd stats
     bundle
 
-## To implement
+## To implement ##
 
 ### For developers ###
 
