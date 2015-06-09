@@ -13,10 +13,10 @@ common statistical methods before that happens). I do plan to add a gemspec
 to this repository so that it can be installed using `gem` regardless. Until then,
 try out the following:
 
-    brew install gsl
-    gem install gsl
     git clone https://github.com/davejacobs/stats.git
     cd stats
+    brew install gsl
+    bundle
 
 To implement
 ------------
