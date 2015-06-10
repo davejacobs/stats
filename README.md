@@ -15,7 +15,16 @@ Once this is stable and fully tested (it is so far for all the functions listed 
     cd stats
     bundle
 
-## To implement ##
+## Running tests ##
+
+I've started integrating R into my tests to make testing as easy and repeatable as possible. I'm also planning to incorporate something like Randly to expand the values that I test.
+
+To run tests:
+
+    brew install homebrew/science/r
+    rspec
+
+## Progress ##
 
 ### For developers ###
 
@@ -78,8 +87,7 @@ I've added a wrapper around GSL distribution functions, for more intuitive acces
 - [ ] Significance methods on data structures
 - [ ] Test using R integration and something like [Rantly](https://github.com/hayeah/rantly)
 
-Resources
----------
+## Resources ##
 
 - [How to choose the right statistical test](http://www.graphpad.com/support/faqid/1790/)
 - [Wilkinson's *Statistics Quiz* (RTF)](http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf)
