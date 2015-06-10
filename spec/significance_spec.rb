@@ -49,17 +49,16 @@ module Stats
       it "calculates the correct one-sided, two-sample T stats according to R" do
         x = [89.2, 78.2, 89.3, 88.3, 87.3, 90.1, 95.2, 94.3, 78.3, 89.3]
         y = [79.3, 78.3, 85.3, 79.3, 88.9, 91.2, 87.2, 89.2, 93.3, 79.9]
+        stats = Significance.two_sample_t(x, y)
 
         @r.x = x
         @r.y = y
-
         @r.eval <<-RSCRIPT
           t <- t.test(x, y, paired=FALSE, alternative='greater')
           statistic <- t$statistic
           p_value <- t$p.value
         RSCRIPT
 
-        stats = Significance.two_sample_t(x, y)
         stats[:statistic].should be_pseudo_equal(@r.statistic)
         stats[:p_value].should be_pseudo_equal(@r.p_value) # One-sided
       end
