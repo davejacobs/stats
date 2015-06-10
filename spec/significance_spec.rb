@@ -2,6 +2,10 @@ require 'spec_helper'
 
 module Stats
   describe Significance do
+    before do
+      @r = RinRuby.new(:echo => false)
+    end
+
     describe "#chi_square" do
       it "calculates the correct Chi Square stats for df = 1 according to R" do
         stats = Significance.chi_square([85, 15], [75, 25], 1)
@@ -34,9 +38,18 @@ module Stats
         x = [89.2, 78.2, 89.3, 88.3, 87.3, 90.1, 95.2, 94.3, 78.3, 89.3]
         y = [79.3, 78.3, 85.3, 79.3, 88.9, 91.2, 87.2, 89.2, 93.3, 79.9]
 
+        @r.x = x
+        @r.y = y
+
+        @r.eval <<-RSCRIPT
+          t <- t.test(x, y, paired=FALSE, alternative='greater')
+          statistic <- t$statistic
+          p_value <- t$p.value
+        RSCRIPT
+
         stats = Significance.two_sample_t(x, y)
-        stats[:statistic].should be_pseudo_equal(1.09472)
-        stats[:p_value].should be_pseudo_equal(0.144) # One-sided
+        stats[:statistic].should be_pseudo_equal(@r.statistic)
+        stats[:p_value].should be_pseudo_equal(@r.p_value) # One-sided
       end
     end
 
@@ -50,18 +63,17 @@ module Stats
         y = [66, 67, 65, 68, 69, 70, 69, 68, 69, 65]
 
         stats = Significance.repeated_measures_t(x, y)
-        r = RinRuby.new(:echo => false)
-        r.x = x
-        r.y = y
+        @r.x = x
+        @r.y = y
 
-        r.eval <<-RSCRIPT
+        @r.eval <<-RSCRIPT
           t <- t.test(x, y, paired=TRUE, alternative='greater')
           statistic <- t$statistic
           p_value <- t$p.value
         RSCRIPT
 
-        stats[:statistic].should be_pseudo_equal(r.statistic)
-        stats[:p_value].should be_pseudo_equal(r.p_value) # One-sided
+        stats[:statistic].should be_pseudo_equal(@r.statistic)
+        stats[:p_value].should be_pseudo_equal(@r.p_value) # One-sided
       end
     end
 
