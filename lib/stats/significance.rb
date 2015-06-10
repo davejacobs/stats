@@ -4,8 +4,6 @@ module Stats
       1.0 - Distribution.normal_cdf(value)
     end
 
-    # TODO: Add support for two-tailed Chi square test, which will not
-    # normally equal the one-tailed result times two.
     def self.chi_square(observed, expected, df=1)
       merged = observed.zip expected
 
