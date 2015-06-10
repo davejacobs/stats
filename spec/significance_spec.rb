@@ -7,10 +7,22 @@ module Stats
     end
 
     describe "#chi_square" do
-      it "calculates the correct Chi Square stats for df = 1 according to R" do
-        stats = Significance.chi_square([85, 15], [75, 25], 1)
-        stats[:statistic].should be_pseudo_equal(5.33333333)
-        stats[:p_value].should be_pseudo_equal(0.01200306)
+      it "calculates the correct Chi Square stats for 4 categories according to R" do
+        x = [85, 15, 75, 25]
+        y = [50, 50, 50, 50]
+        stats = Significance.chi_square(x, y)
+
+        @r.x = x
+        # R calculates y on its own (where y = expected)
+        # @r.y = y
+        @r.eval <<-RSCRIPT
+          res <- chisq.test(x)
+          statistic <- res$statistic
+          p_value <- res$p.value
+        RSCRIPT
+
+        stats[:statistic].should be_pseudo_equal(@r.statistic)
+        stats[:p_value].should be_pseudo_equal(@r.p_value)
       end
     end
 
