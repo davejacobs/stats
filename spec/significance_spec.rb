@@ -34,10 +34,18 @@ module Stats
       it "calculates the correct one-sided, one-sample T stats according to R" do
         x = [62, 92, 75, 68, 83, 95]
         population_mean = 70
-
         stats = Significance.one_sample_t(x, population_mean)
-        stats[:statistic].should be_pseudo_equal(1.7053)
-        stats[:p_value].should be_pseudo_equal(0.07443) # One-sided
+
+        @r.x = x
+        @r.mu = population_mean
+        @r.eval <<-RSCRIPT
+          res <- t.test(x, mu=mu, alternative="greater")
+          statistic <- res$statistic
+          p_value <- res$p.value
+        RSCRIPT
+
+        stats[:statistic].should be_pseudo_equal(@r.statistic)
+        stats[:p_value].should be_pseudo_equal(@r.p_value) # One-sided
       end
     end
 
