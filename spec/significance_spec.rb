@@ -45,13 +45,37 @@ module Stats
     # y = c(66, 67, ..., 65)
     # t.test(x, y, paired=TRUE, alternative="greater")
     describe "#repeated_measures_t" do
+      # it "calculates the correct one-sided, repeated-measure T stats according to R" do
+      #   x = [65, 75, 80, 77, 74, 69, 72, 72, 71, 69]
+      #   y = [66, 67, 65, 68, 69, 70, 69, 68, 69, 65]
+      #
+      #   stats = Significance.repeated_measures_t(x, y)
+      #   stats[:statistic].should be_pseudo_equal(3.1304)
+      #   stats[:p_value].should be_pseudo_equal(0.006057) # One-sided
+      # end
+
       it "calculates the correct one-sided, repeated-measure T stats according to R" do
         x = [65, 75, 80, 77, 74, 69, 72, 72, 71, 69]
         y = [66, 67, 65, 68, 69, 70, 69, 68, 69, 65]
 
         stats = Significance.repeated_measures_t(x, y)
-        stats[:statistic].should be_pseudo_equal(3.1304)
-        stats[:p_value].should be_pseudo_equal(0.006057) # One-sided
+        r = RinRuby.new(:echo => false)
+        r.x = x
+        r.y = y
+
+        r.eval <<-RSCRIPT
+          # x <- c(65, 75, 80, 77, 74, 69, 72, 72, 71, 69)
+          # y <- c(66, 67, 65, 68, 69, 70, 69, 68, 69, 65)
+          t <- t.test(x, y, paired=TRUE, alternative='greater')
+          statistic <- t$statistic
+          p_value <- t$p.value
+        RSCRIPT
+
+        r_statistic = r.statistic
+        r_p_value = r.p_value
+
+        stats[:statistic].should be_pseudo_equal(r_statistic)
+        stats[:p_value].should be_pseudo_equal(r_p_value) # One-sided
       end
     end
 

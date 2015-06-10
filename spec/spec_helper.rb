@@ -1,4 +1,5 @@
 require 'rspec'
+require 'rinruby'
 require 'stats'
 
 RSpec.configure do |config|
