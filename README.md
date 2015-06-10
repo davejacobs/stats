@@ -81,7 +81,7 @@ I've added a wrapper around GSL distribution functions, for more intuitive acces
 Resources
 ---------
 
-- [How to choose the right statistical test](http://www.graphpad.com/www/book/choose.html)
+- [How to choose the right statistical test](http://www.graphpad.com/support/faqid/1790/)
 - [Wilkinson's *Statistics Quiz* (RTF)](http://tspintl-test.com/products/tsp/benchmarks/wilk.rtf)
 - Assessing the reliability of statistical software
   - [Part 1](http://www.questia.com/googleScholar.qst?docId=5001390400)
