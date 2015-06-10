@@ -45,7 +45,7 @@ I've added a wrapper around GSL distribution functions, for more intuitive acces
 
 ### Significance tests ###
 
-- [x] Chi square, one-sided
+- [x] Chi square
 - [x] T-test, single sample
 - [x] T-test, two-sample
 - [x] T-test, repeated measures
@@ -54,7 +54,7 @@ I've added a wrapper around GSL distribution functions, for more intuitive acces
 - [ ] Median test
 - [ ] Kruskall-Wallis H test
 - [ ] Friedman test
-- [x] ANOVA, one way
+- [x] ANOVA, one-way
 - [ ] Factorial ANOVA, two-way
 - [ ] Factorial ANOVA, three-way
 - [ ] ANOVA, repeated measures
