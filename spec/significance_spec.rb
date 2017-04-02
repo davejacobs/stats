@@ -153,15 +153,56 @@ module Stats
     # statistic = s[[1]][['F value']][[1]]
     # p.value = pf(15.891605, 3, 8, lower.tail=FALSE)
     describe "#one_way_anova" do
-      it "calculates the correct one-way ANOVA F ratio for four samples, one variable according to R" do
-        y1 = [12_655, 17_877, 18_766]
-        y2 = [19_877, 20_122, 19_888]
-        y3 = [21_033, 21_188, 22_099]
-        y4 = [25_023, 27_877, 26_755]
+      it "calculates the correct one-way ANOVA F ratio for three samples, four groups according to R" do
+        # TODO: Change the interface for this method to look
+        # like R's
+
+        data = [
+          ["2.50%", 12_655],
+          ["2.50%", 17_877],
+          ["2.50%", 18_766],
+
+          ["5.00%", 19_877],
+          ["5.00%", 20_122],
+          ["5.00%", 19_888],
+
+          ["7.50%", 21_033],
+          ["7.50%", 21_188],
+          ["7.50%", 22_099],
+
+          ["10.00%", 25_023],
+          ["10.00%", 27_877],
+          ["10.00%", 26_755]
+        ]
+
+        # This is used for R
+        percentages = data.map(&:first)
+        measurements = data.map(&:last)
+
+        # This is used for Ruby
+        # unique_labels = data.map(&:first).each_slice(3).map(&:first)
+        y1, y2, y3, y4 = measurements.each_slice(3).to_a
+
+        @r.percentages = percentages
+        @r.measurements = measurements
+        @r.eval <<-RSCRIPT
+          df <- data.frame(percentages=percentages, measurements=measurements)
+          #' colnames(df) <- percentages
+
+          #' summary(df)
+          #' print(df)
+
+          a <- aov(measurements ~ percentages, data=df)
+
+          f_value = summary(a)[[1]][["F value"]][[1]]
+          p_value <- summary(a)[[1]][["Pr(>F)"]][[1]]
+
+          #' summary(a)
+        RSCRIPT
 
         stats = Significance.one_way_anova([y1, y2, y3, y4])
-        stats[:statistic].should be_pseudo_equal(15.891605)
-        stats[:p_value].should be_pseudo_equal(0.0009869)
+        stats[:statistic].should be_pseudo_equal(@r.f_value)
+        stats[:p_value].should be_pseudo_equal(@r.p_value)
       end
     end
   end

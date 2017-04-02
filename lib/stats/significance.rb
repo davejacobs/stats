@@ -103,6 +103,8 @@ module Stats
       { :statistic => h, :p_value => p_value }
     end
 
+    # TODO: Change the interface for this method to look
+    # like R's
     def self.one_way_anova(list)
       n = list.length
       flat_list = list.flatten
